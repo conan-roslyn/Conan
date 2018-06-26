@@ -1,0 +1,4 @@
+[submodule "roslyn"]
+	path = roslyn
+	url = https://github.com/xoofx/roslyn.git
+	branch = compilation-rewriter
