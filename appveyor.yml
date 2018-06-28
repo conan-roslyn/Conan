@@ -7,7 +7,7 @@ install:
     $env:appveyor_nuget_push = 'false'
 
     if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) {
-      $env:appveyor_nuget_push = 'true'
+      $env:appveyor_nuget_push = 'false'
     }
 build:
   project: src\Conan.sln
@@ -18,7 +18,11 @@ after_build:
 
     cd roslyn
 
+    for /f %%i in ('git rev-parse HEAD') do set BUILD_SOURCEVERSION=%%i
+
     restore.cmd
+
+    set RoslynNuGetMoniker=alpha2
 
     set SkipApplyOptimizations=true
 

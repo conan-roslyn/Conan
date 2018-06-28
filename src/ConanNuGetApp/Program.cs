@@ -13,6 +13,9 @@ namespace ConanNuGetApp
         private const string RoslynNuGetFolder = @"..\..\..\..\roslyn\src\NuGet";
         private const string PrefixPackage = "Microsoft.";
         private const string NewPrefixPackage = "Conan.";
+        private const string AddDescription = @"
+      Conan is a lightweight fork of the NET Compiler Platform (""Roslyn"") by adding a compiler plugin infrastructure.
+    ";
 
         /// <summary>
         /// We are only processing the following top level nuspec with their transitive dependencies
@@ -64,11 +67,13 @@ namespace ConanNuGetApp
             UpdateConanDescription(summary);
             if (summary != null)
             {
-                summary.Value += @"
-      Conan is a lightweight fork of the NET Compiler Platform (""Roslyn"") by adding a compiler plugin infrastructure.
-    ";
+                summary.Value += AddDescription;
             }
             var description = SelectElement(metadata, "description");
+            if (description != null)
+            {
+                description.Value += AddDescription;
+            }
             UpdateConanDescription(description);
 
             idNode.Value = ReplacePrefix(idNode.Value);
