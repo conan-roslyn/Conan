@@ -92,6 +92,26 @@ namespace ConanNuGetApp
                 }
             }
 
+            // Special case
+            // we need to move the file in the nuspec from
+            //   
+            if (id == "Microsoft.Net.Compilers" || id == "Microsoft.NETCore.Compilers")
+            {
+                // <file src="$additionalFilesPath$/Microsoft.NETCore.Compilers.props" target="build" />
+                var files = SelectElement(package, "files");
+                foreach (var file in files.Descendants().Where(x => x.Name.LocalName == "file"))
+                {
+                    var srcAttribute = file.Attribute("src").Value;
+                    var targetAttribute = file.Attribute("target");
+                    if (srcAttribute.StartsWith("$additionalFilesPath$/Microsoft.") && srcAttribute.EndsWith(".props"))
+                    {
+                        targetAttribute.Value = targetAttribute.Value + "/" + ReplacePrefix(Path.GetFileName(srcAttribute));
+                        break;
+                    }
+                }
+            }
+
+
             metadata.Add(new XElement(XName.Get("iconUrl", metadata.Name.NamespaceName), "https://raw.githubusercontent.com/xoofx/Conan/master/img/conan.png"));
             var newNuspecFile = Path.Combine(folder, newId + ".nuspec");
             xd.Save(newNuspecFile);
