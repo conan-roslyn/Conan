@@ -94,7 +94,7 @@ namespace ConanNuGetApp
 
             // Special case
             // we need to move the file in the nuspec from
-            //   
+            //
             if (id == "Microsoft.Net.Compilers" || id == "Microsoft.NETCore.Compilers")
             {
                 // <file src="$additionalFilesPath$/Microsoft.NETCore.Compilers.props" target="build" />
@@ -112,7 +112,7 @@ namespace ConanNuGetApp
             }
 
 
-            metadata.Add(new XElement(XName.Get("iconUrl", metadata.Name.NamespaceName), "https://raw.githubusercontent.com/xoofx/Conan/master/img/conan.png"));
+            metadata.Add(new XElement(XName.Get("iconUrl", metadata.Name.NamespaceName), "https://raw.githubusercontent.com/conan-roslyn/Conan/master/img/conan.png"));
             var newNuspecFile = Path.Combine(folder, newId + ".nuspec");
             xd.Save(newNuspecFile);
 
@@ -134,7 +134,7 @@ namespace ConanNuGetApp
             if (element != null)
             {
                 element.Value = element.Value.Replace("(\"Roslyn\")", "(\"Roslyn + Conan\")");
-                element.Value = element.Value.Replace("https://aka.ms/roslyn-packages", "https://github.com/xoofx/Conan");
+                element.Value = element.Value.Replace("https://aka.ms/roslyn-packages", "https://github.com/conan-roslyn/Conan");
                 element.Value = element.Value.Replace(PrefixPackage, NewPrefixPackage);
             }
         }
