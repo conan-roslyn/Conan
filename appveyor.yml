@@ -20,6 +20,8 @@ after_build:
 
     for /f %%i in ('git rev-parse HEAD') do set BUILD_SOURCEVERSION=%%i
 
+    echo Git commit used %BUILD_SOURCEVERSION%
+
     restore.cmd
 
     set RoslynNuGetMoniker=alpha2
