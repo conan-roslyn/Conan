@@ -1,0 +1,36 @@
+version: 1.0.{build}
+configuration: Release
+install:
+- cmd: >-
+    git submodule update --init --recursive
+- ps: >-
+    $env:appveyor_nuget_push = 'false'
+
+    if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) {
+      $env:appveyor_nuget_push = 'true'
+    }
+build:
+  project: src\Conan.sln
+  verbosity: minimal
+after_build:
+- cmd: >-
+    src\ConanNuGetApp\bin\Release\ConanNuGetApp.exe
+
+    cd roslyn
+
+    restore.cmd
+
+    set SkipApplyOptimizations=true
+
+    build.cmd -release --official -pack
+
+test: off
+artifacts:
+- path: roslyn\Binaries\Release\NuGet\PreRelease\Conan.*.nupkg
+  name: Conan NuGet Packages
+deploy:
+- provider: NuGet
+  api_key:
+    secure: 7cthHh+wYWZjhqxaxR6QObRaRnstvFkQOY7MkxIsC5kpQEBlKZXuinf0IybbYxJt
+  on:
+    appveyor_nuget_push: true
