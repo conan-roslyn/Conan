@@ -70,11 +70,11 @@ namespace ConanNuGetApp
                 summary.Value += AddDescription;
             }
             var description = SelectElement(metadata, "description");
+            UpdateConanDescription(description);
             if (description != null)
             {
                 description.Value += AddDescription;
             }
-            UpdateConanDescription(description);
 
             idNode.Value = ReplacePrefix(idNode.Value);
 
@@ -115,6 +115,7 @@ namespace ConanNuGetApp
             {
                 element.Value = element.Value.Replace("(\"Roslyn\")", "(\"Roslyn + Conan\")");
                 element.Value = element.Value.Replace("https://aka.ms/roslyn-packages", "https://github.com/xoofx/Conan");
+                element.Value = element.Value.Replace(PrefixPackage, NewPrefixPackage);
             }
         }
 
