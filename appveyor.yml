@@ -16,11 +16,11 @@ after_build:
 - cmd: >-
     src\ConanNuGetApp\bin\Release\ConanNuGetApp.exe
 
-    cd roslyn
-
     for /f %%i in ('git rev-parse HEAD') do set BUILD_SOURCEVERSION=%%i
 
     echo Git commit used %BUILD_SOURCEVERSION%
+
+    cd roslyn
 
     restore.cmd
 
