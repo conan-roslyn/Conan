@@ -23,8 +23,10 @@ namespace ConanNuGetApp
         private static readonly string[] RootPackages = new string[]
         {
             "Microsoft.CodeAnalysis",
-            "Microsoft.Net.Compilers",
-            "Microsoft.NETCore.Compilers"
+
+            // We are no longer processing these nuspec files as we are making our own bringing Full and Core support into the same package
+            //"Microsoft.Net.Compilers",
+            //"Microsoft.NETCore.Compilers"
         };
 
         static void Main(string[] args)
