@@ -1,4 +1,4 @@
-# Conan  [![Build status](https://ci.appveyor.com/api/projects/status/i5ladyqmy7kp2m98?svg=true)](https://ci.appveyor.com/project/conan-roslyn/Conan)
+# Conan  [![Build status](https://ci.appveyor.com/api/projects/status/i5ladyqmy7kp2m98?svg=true)](https://ci.appveyor.com/project/xoofx/conan)
 
 <img align="right" width="256px" height="256px" src="img/conan.png">
 
@@ -12,15 +12,14 @@ Conan is a _lightweight_ fork of the [.NET Compiler Platform ("Roslyn")](https:/
 
 | Roslyn | Conan    | NuGet
 | ------- | -------- | --------
-| Microsoft.CodeAnalysis | [Conan.CodeAnalysis](https://www.nuget.org/packages/Conan.CodeAnalysis/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis/)
-| Microsoft.CodeAnalysis.Common | [Conan.CodeAnalysis.Common](https://www.nuget.org/packages/Conan.CodeAnalysis.Common/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.Common.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.Common/)
-| Microsoft.CodeAnalysis.CSharp | [Conan.CodeAnalysis.CSharp](https://www.nuget.org/packages/Conan.CodeAnalysis.CSharp/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.CSharp.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.CSharp/)
-| Microsoft.CodeAnalysis.CSharp.Workspaces | [Conan.CodeAnalysis.CSharp.Workspaces](https://www.nuget.org/packages/Conan.CodeAnalysis.CSharp.Workspaces/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.CSharp.Workspaces.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.CSharp.Workspaces/)
-| Microsoft.CodeAnalysis.VisualBasic | [Conan.CodeAnalysis.VisualBasic](https://www.nuget.org/packages/Conan.CodeAnalysis.VisualBasic/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.VisualBasic.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.VisualBasic/)
-| Microsoft.CodeAnalysis.VisualBasic.Workspaces | [Conan.CodeAnalysis.VisualBasic.Workspaces](https://www.nuget.org/packages/Conan.CodeAnalysis.VisualBasic.Workspaces/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.VisualBasic.Workspaces.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.VisualBasic.Workspaces/)
-| Microsoft.CodeAnalysis.Workspaces.Common | [Conan.CodeAnalysis.Workspaces.Common](https://www.nuget.org/packages/Conan.CodeAnalysis.Workspaces.Common/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.Workspaces.Common.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.Workspaces.Common/)
-| Microsoft.Net.Compilers | [Conan.Net.Compilers](https://www.nuget.org/packages/Conan.Net.Compilers) | [![NuGet](https://img.shields.io/nuget/v/Conan.Net.Compilers.svg)](https://www.nuget.org/packages/Conan.Net.Compilers/)
-| Microsoft.NETCore.Compilers | [Conan.NETCore.Compilers](https://www.nuget.org/packages/Conan.NETCore.Compilers) | [![NuGet](https://img.shields.io/nuget/v/Conan.NETCore.Compilers.svg)](https://www.nuget.org/packages/Conan.NETCore.Compilers/)
+| Microsoft.Net.Compilers<br>Microsoft.NETCore.Compilers | [**Conan.Net.Compilers**](https://www.nuget.org/packages/Conan.Net.Compilers) | [![NuGet](https://img.shields.io/nuget/v/Conan.Net.Compilers.svg)](https://www.nuget.org/packages/Conan.Net.Compilers/)
+| Microsoft.CodeAnalysis | [**Conan.CodeAnalysis**](https://www.nuget.org/packages/Conan.CodeAnalysis/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis/)
+| • Microsoft.CodeAnalysis.Common | • [Conan.CodeAnalysis.Common](https://www.nuget.org/packages/Conan.CodeAnalysis.Common/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.Common.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.Common/)
+| • Microsoft.CodeAnalysis.CSharp | • [Conan.CodeAnalysis.CSharp](https://www.nuget.org/packages/Conan.CodeAnalysis.CSharp/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.CSharp.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.CSharp/)
+| • Microsoft.CodeAnalysis.CSharp.Workspaces | • [Conan.CodeAnalysis.CSharp.Workspaces](https://www.nuget.org/packages/Conan.CodeAnalysis.CSharp.Workspaces/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.CSharp.Workspaces.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.CSharp.Workspaces/)
+| • Microsoft.CodeAnalysis.VisualBasic | • [Conan.CodeAnalysis.VisualBasic](https://www.nuget.org/packages/Conan.CodeAnalysis.VisualBasic/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.VisualBasic.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.VisualBasic/)
+| • Microsoft.CodeAnalysis.VisualBasic.Workspaces | • [Conan.CodeAnalysis.VisualBasic.Workspaces](https://www.nuget.org/packages/Conan.CodeAnalysis.VisualBasic.Workspaces/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.VisualBasic.Workspaces.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.VisualBasic.Workspaces/)
+| • Microsoft.CodeAnalysis.Workspaces.Common | • [Conan.CodeAnalysis.Workspaces.Common](https://www.nuget.org/packages/Conan.CodeAnalysis.Workspaces.Common/) | [![NuGet](https://img.shields.io/nuget/v/Conan.CodeAnalysis.Workspaces.Common.svg)](https://www.nuget.org/packages/Conan.CodeAnalysis.Workspaces.Common/)
 
 ## Credits
 
