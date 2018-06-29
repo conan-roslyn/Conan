@@ -6,9 +6,51 @@ Conan is a _lightweight_ fork of the [.NET Compiler Platform ("Roslyn")](https:/
 
 ## Notice
 
-> This repository is under construction, not officially released and still not usable
+> This repository is under construction, a documentation will follow in the coming weeks
+
+## Usage
+
+### How to develop a Conan compiler plugin?
+
+1. Create a `netstandard1.3` library
+2. Add the latest `Conan.CodeAnalysis` package (`alpha5+`)
+3. Create a new class an inherit from `CompilationRewriter`. See [`HelloWorld` plugin example](https://github.com/conan-roslyn/Conan.Plugin.HelloWorld)
+   ```C#
+       [DiagnosticAnalyzer(LanguageNames.CSharp)]
+       public class MyCompilationRewriter : CompilationRewriter
+       {
+           public override Compilation Rewrite(CompilationRewriterContext context)
+           {
+               var compilation = context.Compilation;
+   
+               // Transform compilation
+               ...
+   
+               return compilation;
+           }
+       }
+   ```    
+4. If you want to create a NuGet package for this plugin, you can add a reference to the NuGet package [AnalyzerPack](https://github.com/xoofx/AnalyzerPack) and it will transform automatically your package into a Diagnostic Analyzer NuGet package (when doing a dotnet/msbuild Pack)
+
+### How to use this plugin in your project?
+
+1. Add the package `Conan.Net.Compilers` to your project: This will make the Conan compiler as the default CSharp/VB compiler and replace the default Roslyn compiler (This package works for both Full framework and Core framework unlike the Roslyn packages)
+2. Add your plugin you developed either by:
+   - Adding directly a reference to it into your csproj. This is what is used by the HelloWorld package:
+     ```xml
+       <ItemGroup>
+           <Analyzer Include="..\Conan.Plugin.HelloWorld\bin\$(Configuration)\netstandard1.3\Conan.Plugin.HelloWorld.dll" />
+       </ItemGroup>
+     ```
+   - Adding a reference to the NuGet package of your plugin (that has been through `AnalyzerPack`)
+3. If you compile your project, the plugin will be automatically loaded and executed, check the logs!
 
 ## NuGet Packages
+
+Their are 2 fundamental root packages in Conan:
+
+- [**Conan.Net.Compilers**](https://www.nuget.org/packages/Conan.Net.Compilers): This is the Conan compiler that is replacing the default Roslyn compiler, working with both .NET full framework and .NET Core projects. This compiler will be responsible to load your Conan plugins (as Diagnostic Analyzers)
+- [**Conan.CodeAnalysis**](https://www.nuget.org/packages/Conan.CodeAnalysis/): This is the root package for developing a Conan compiler plugin that you should reference from your plugin compiler library
 
 | Roslyn | Conan    | NuGet
 | ------- | -------- | --------
